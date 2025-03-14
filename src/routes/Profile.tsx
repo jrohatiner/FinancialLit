@@ -125,7 +125,6 @@ const Profile: React.FC = () => {
           <div style={styles.profileHeader}>
             <img
               src="https://via.placeholder.com/80"
-              alt=""
               style={styles.avatar}
             />
             <div style={styles.profileInfo}>
