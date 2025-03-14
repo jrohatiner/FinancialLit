@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faFilter } from '@fortawesome/free-solid-svg-icons';
 import Card from '../Card';
-import RecentTransactions from '../RecentTransactions';
+// import RecentTransactions from '../RecentTransactions';
 import SpendingSummary from '../summaries/SpendingSummary';
 import AISuggestions from '../components/AISuggestions';
 
@@ -206,19 +206,19 @@ const styles = {
   },
   subscriptionInfo: {
     flex: 1,
-    textAlign: 'left',
+    // textAlign: 'left',
   },
   subscriptionName: {
     fontSize: '16px',
     fontWeight: 'bold',
     color: '#333',
     marginBottom: '4px',
-    textAlign: 'left',
+    // textAlign: 'left',
   },
   subscriptionDetails: {
     fontSize: '14px',
     color: '#666',
-    textAlign: 'left',
+    // textAlign: 'left',
   },
   subscriptionRight: {
     display: 'flex',
@@ -230,7 +230,7 @@ const styles = {
     fontSize: '16px',
     fontWeight: 'bold',
     color: '#FF784B',
-    textAlign: 'right',
+    // textAlign: 'right',
   },
   subscriptionCategory: {
     display: 'inline-block',

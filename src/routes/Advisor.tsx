@@ -41,7 +41,7 @@ const styles = {
     marginTop: '20px',
     cursor: 'pointer',
     fontSize: '16px',
-    textTransform: 'uppercase',
+    // textTransform: 'uppercase',
   }
 };
 
