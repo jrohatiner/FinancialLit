@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import Settings from './components/Settings';
@@ -8,10 +9,10 @@ interface HeaderProps {
   subtitle?: string;
 }
 
-const styles: { 
-  Header: React.CSSProperties; 
-  Title: React.CSSProperties; 
-  Subtitle: React.CSSProperties; 
+const styles: {
+  Header: React.CSSProperties;
+  Title: React.CSSProperties;
+  Subtitle: React.CSSProperties;
   SubtitleSmall: React.CSSProperties;
   HeaderContent: React.CSSProperties;
   SettingsButton: React.CSSProperties;
@@ -78,23 +79,24 @@ const Header: React.FC<HeaderProps> = ({ children, subtitle }) => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   return (
-    <>
-      <div style={styles.Header} className="header">
-        <div style={styles.HeaderContent}>
-          <button 
-            style={styles.SettingsButton}
-            onClick={() => setIsSettingsOpen(true)}
-            aria-label="Settings"
-          >
-            <FontAwesomeIcon icon={faCog} size="lg" />
-          </button>
-          <h1 style={styles.Title}>{children}</h1>
-          <p style={styles.Subtitle} className="subhead">Financial Literacy For You</p>
-          <h3 style={styles.SubtitleSmall}>{subtitle}</h3>
+      <>
+        <div style={styles.Header} className="header">
+          <div style={styles.HeaderContent}>
+            <button
+                style={styles.SettingsButton}
+                onClick={() => setIsSettingsOpen(true)}
+                aria-label="Settings"
+            >
+              <FontAwesomeIcon icon={faCog} size="lg" />
+            </button>
+            <Link to="/login" style={{ textDecoration: 'none', color: '#22C55E', fontWeight: 'bold', position: 'absolute', left: '20px', top: '20px' }}>Login</Link>
+            <h1 style={styles.Title}>{children}</h1>
+            <p style={styles.Subtitle} className="subhead">Financial Literacy For You</p>
+            <h3 style={styles.SubtitleSmall}>{subtitle}</h3>
+          </div>
         </div>
-      </div>
-      <Settings isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
-    </>
+        <Settings isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
+      </>
   );
 };
 
