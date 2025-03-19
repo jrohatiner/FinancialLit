@@ -1,126 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
+import General from '../settings/General';
+import Preferences from '../settings/Preferences';
+import Security from '../settings/Security';
+import Billing from '../settings/Billing';
+import Membership from '../settings/Membership';
+import UpgradePlan from '../settings/UpgradePlan';
+import Integrations from '../settings/Integrations';
+import ContactSupport from '../settings/ContactSupport';
+import '../settings/Settings.css';
 
 interface SettingsProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const styles = {
-  overlay: {
-    position: 'fixed' as const,
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    padding: '80px 16px',
-    zIndex: 2000,
-  },
-  container: {
-    width: '100%',
-    maxWidth: '480px',
-    backgroundColor: '#ffffff',
-    borderRadius: '12px',
-    padding: '20px',
-    position: 'relative' as const,
-  },
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '20px',
-  },
-  title: {
-    fontSize: '24px',
-    fontWeight: 'bold' as const,
-    margin: 0,
-  },
-  closeButton: {
-    background: 'none',
-    border: 'none',
-    fontSize: '24px',
-    cursor: 'pointer',
-    padding: '4px',
-  },
-  section: {
-    marginBottom: '24px',
-  },
-  sectionTitle: {
-    fontSize: '18px',
-    fontWeight: 'bold' as const,
-    marginBottom: '12px',
-  },
-  option: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '12px 0',
-    borderBottom: '1px solid #eee',
-  },
-  optionLabel: {
-    fontSize: '16px',
-  },
-};
-
 const Settings: React.FC<SettingsProps> = ({ isOpen, onClose }) => {
+  const [activeTab, setActiveTab] = useState('General');
+
   if (!isOpen) return null;
 
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'General':
+        return <General />;
+      case 'Preferences':
+        return <Preferences />;
+      case 'Security':
+        return <Security />;
+      case 'Billing':
+        return <Billing />;
+      case 'Membership':
+        return <Membership />;
+      case 'UpgradePlan':
+        return <UpgradePlan />;
+      case 'Integrations':
+        return <Integrations />;
+      case 'ContactSupport':
+        return <ContactSupport />;
+      default:
+        return <General />;
+    }
+  };
+
   return (
-    <div style={styles.overlay} onClick={onClose}>
-      <div style={styles.container} onClick={e => e.stopPropagation()}>
-        <div style={styles.header}>
-          <h2 style={styles.title}>Settings</h2>
-          <button style={styles.closeButton} onClick={onClose}>×</button>
-        </div>
-
-        <div style={styles.section}>
-          <h3 style={styles.sectionTitle}>Account</h3>
-          <div style={styles.option}>
-            <span style={styles.optionLabel}>Notifications</span>
-            <input type="checkbox" defaultChecked />
+      <div className="settings-overlay" onClick={onClose}>
+        <div className="settings-container" onClick={e => e.stopPropagation()}>
+          <div className="settings-header">
+            <h2 className="settings-title">Settings</h2>
+            <button className="settings-close-button" onClick={onClose}>×</button>
           </div>
-          <div style={styles.option}>
-            <span style={styles.optionLabel}>Dark Mode</span>
-            <input type="checkbox" />
-          </div>
-        </div>
-
-        <div style={styles.section}>
-          <h3 style={styles.sectionTitle}>Budget Settings</h3>
-          <div style={styles.option}>
-            <span style={styles.optionLabel}>Monthly Reset</span>
-            <input type="checkbox" defaultChecked />
-          </div>
-          <div style={styles.option}>
-            <span style={styles.optionLabel}>Budget Alerts</span>
-            <input type="checkbox" defaultChecked />
-          </div>
-        </div>
-
-        <div style={styles.section}>
-          <h3 style={styles.sectionTitle}>Display</h3>
-          <div style={styles.option}>
-            <span style={styles.optionLabel}>Currency</span>
-            <select defaultValue="USD">
-              <option value="USD">USD ($)</option>
-              <option value="EUR">EUR (€)</option>
-              <option value="GBP">GBP (£)</option>
-            </select>
-          </div>
-          <div style={styles.option}>
-            <span style={styles.optionLabel}>Date Format</span>
-            <select defaultValue="MM/DD/YYYY">
-              <option value="MM/DD/YYYY">MM/DD/YYYY</option>
-              <option value="DD/MM/YYYY">DD/MM/YYYY</option>
-              <option value="YYYY-MM-DD">YYYY-MM-DD</option>
-            </select>
+          <div className="settings-content">
+            <nav className="settings-nav">
+              <ul>
+                <li onClick={() => setActiveTab('General')}>General</li>
+                <li onClick={() => setActiveTab('Preferences')}>Preferences</li>
+                <li onClick={() => setActiveTab('Security')}>Security</li>
+                <li onClick={() => setActiveTab('Billing')}>Billing</li>
+                <li onClick={() => setActiveTab('Membership')}>Membership</li>
+                <li onClick={() => setActiveTab('UpgradePlan')}>Upgrade Plan</li>
+                <li onClick={() => setActiveTab('Integrations')}>Integrations</li>
+                <li onClick={() => setActiveTab('ContactSupport')}>Contact Support</li>
+                <li onClick={() => setActiveTab('SignOut')}>Sign Out</li>
+              </ul>
+            </nav>
+            <div className="settings-tab-content">
+              {renderContent()}
+            </div>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

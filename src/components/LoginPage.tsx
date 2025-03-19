@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './LoginPage.css';
+import Card from '../Card';
 
 const LoginPage: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -18,6 +19,7 @@ const LoginPage: React.FC = () => {
 
     return (
         <div className="login-container">
+
             <form className="login-form" onSubmit={handleSubmit}>
                 {error && <div className="login-error">{error}</div>}
                 <p className="login-title">Great to see you again!</p>
@@ -41,7 +43,8 @@ const LoginPage: React.FC = () => {
                 <p className="forgot-password">Forgot your password? <Link to="/reset-password">Reset it here</Link></p>
                 <p className="register-link">Don't have an account? <Link to="/register">Register here</Link></p>
             </form>
-        </div>
+
+         </div>
     );
 };
 
