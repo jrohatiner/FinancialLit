@@ -39,6 +39,7 @@ const LoginPage: React.FC = () => {
                 />
                 <button type="submit" className="login-button">Login</button>
                 <p className="forgot-password">Forgot your password? <Link to="/reset-password">Reset it here</Link></p>
+                <p className="register-link">Don't have an account? <Link to="/register">Register here</Link></p>
             </form>
         </div>
     );

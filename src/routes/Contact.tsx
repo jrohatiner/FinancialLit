@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Card from '../Card';
 import BackLink from '../components/BackLink';
 
@@ -88,58 +88,60 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  return (
+
+  return <>
     <div style={styles.container}>
-      <BackLink />
+      <BackLink/>
       <Card>
         <div style={styles.section}>
           <h1 style={styles.title}>Contact Us</h1>
-          <form style={styles.form} onSubmit={handleSubmit}>
+          <form name="contact" style={styles.form}
+                onSubmit={handleSubmit}>
             <div style={styles.formGroup}>
               <label style={styles.label} htmlFor="name">Name</label>
               <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                style={styles.input}
-                required
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  style={styles.input}
+                  required
               />
             </div>
             <div style={styles.formGroup}>
               <label style={styles.label} htmlFor="email">Email</label>
               <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                style={styles.input}
-                required
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  style={styles.input}
+                  required
               />
             </div>
             <div style={styles.formGroup}>
               <label style={styles.label} htmlFor="subject">Subject</label>
               <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                style={styles.input}
-                required
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  style={styles.input}
+                  required
               />
             </div>
             <div style={styles.formGroup}>
               <label style={styles.label} htmlFor="message">Message</label>
               <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                style={styles.textarea}
-                required
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  style={styles.textarea}
+                  required
               />
             </div>
             <button type="submit" style={styles.submitButton}>
@@ -147,14 +149,14 @@ const Contact: React.FC = () => {
             </button>
           </form>
           {submitted && (
-            <div style={styles.successMessage}>
-              Thank you for your message! We'll get back to you soon.
-            </div>
+              <div style={styles.successMessage}>
+                Thank you for your message! We'll get back to you soon.
+              </div>
           )}
         </div>
       </Card>
     </div>
-  );
+  </>;
 };
 
 export default Contact;

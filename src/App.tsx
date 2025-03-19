@@ -10,6 +10,9 @@ import FAQ from './routes/FAQ.tsx';
 import Terms from './routes/Terms.tsx';
 import Contact from './routes/Contact.tsx';
 import LoginPage from './components/LoginPage';
+import ResetPassword from './components/ResetPassword';
+import NewPassword from './components/NewPassword';
+import CreateAccount from './components/CreateAccount';
 
 function App() {
     return (
@@ -25,6 +28,9 @@ function App() {
                     <Route path="/terms" element={<Terms />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/login" element={<LoginPage />} />
+                    <Route path="/reset-password" element={<ResetPassword />} />
+                    <Route path="/reset-password/:token" element={<NewPassword />} />
+                    <Route path="/register" element={<CreateAccount />} />
                 </Routes>
             </div>
             <Footer />
