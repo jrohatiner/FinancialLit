@@ -7,6 +7,7 @@ import Membership from '../settings/Membership';
 import UpgradePlan from '../settings/UpgradePlan';
 import Integrations from '../settings/Integrations';
 import ContactSupport from '../settings/ContactSupport';
+import SetBudgetAndGoals from '../settings/SetBudgetAndGoals';
 import '../settings/Settings.css';
 
 interface SettingsProps {
@@ -37,6 +38,8 @@ const Settings: React.FC<SettingsProps> = ({ isOpen, onClose }) => {
         return <Integrations />;
       case 'ContactSupport':
         return <ContactSupport />;
+      case 'SetBudgetAndGoals':
+        return <SetBudgetAndGoals />;
       default:
         return <General />;
     }
@@ -60,6 +63,7 @@ const Settings: React.FC<SettingsProps> = ({ isOpen, onClose }) => {
                 <li onClick={() => setActiveTab('UpgradePlan')}>Upgrade Plan</li>
                 <li onClick={() => setActiveTab('Integrations')}>Integrations</li>
                 <li onClick={() => setActiveTab('ContactSupport')}>Contact Support</li>
+                <li onClick={() => setActiveTab('SetBudgetAndGoals')}>Set Budget and Goals</li>
                 <li onClick={() => setActiveTab('SignOut')}>Sign Out</li>
               </ul>
             </nav>
