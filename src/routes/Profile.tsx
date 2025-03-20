@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Card from '../Card';
 import Toggle from '../components/Toggle';
+import LinkedAccounts from '../components/LinkedAccounts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faQuestionCircle, faBook, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
@@ -104,6 +105,20 @@ const styles = {
     width: '20px',
     color: '#666',
   },
+  changePasswordButton: {
+    backgroundColor: '#FF784B',
+    border: '1px solid #FF784B',
+    color: '#fff',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    padding: '8px 16px',
+    borderRadius: '8px',
+    fontSize: '14px',
+    transition: 'background-color 0.2s',
+    marginTop: '10px',
+  },
 };
 
 const Profile: React.FC = () => {
@@ -114,8 +129,18 @@ const Profile: React.FC = () => {
     weeklySummary: true,
   });
 
+  const navigate = useNavigate();
+
   const handleToggle = (key: keyof ToggleStates) => {
     setToggles(prev => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const handleEditProfile = () => {
+    navigate('/edit-profile');
+  };
+
+  const handleChangePassword = () => {
+    navigate('/change-password');
   };
 
   return (
@@ -126,16 +151,19 @@ const Profile: React.FC = () => {
             <img
               src="https://via.placeholder.com/80"
               style={styles.avatar}
+              alt={''}
             />
             <div style={styles.profileInfo}>
               <div style={styles.name}>Jessica Harper</div>
               <div style={styles.email}>jessica.harper@example.com</div>
             </div>
-            <button style={styles.editButton}>
+            <button style={styles.editButton} onClick={handleEditProfile}>
               <FontAwesomeIcon icon={faEdit} />
               Edit
             </button>
           </div>
+
+          <LinkedAccounts />
 
           <div style={styles.section}>
             <h3 style={styles.sectionTitle}>Security & Privacy</h3>
@@ -153,6 +181,9 @@ const Profile: React.FC = () => {
                 label="Biometric Login"
               />
             </div>
+            <button style={styles.changePasswordButton} onClick={handleChangePassword}>
+              Change Password
+            </button>
           </div>
 
           <div style={styles.section}>
