@@ -10,7 +10,7 @@ import React, { useState } from 'react';
 
           const handleSubmit = async (e: React.FormEvent) => {
             e.preventDefault();
-            const success = setNewPassword(token, password);
+            const success = setNewPassword(token as string, password);
             setMessage(success ? 'Password has been reset' : 'Error resetting password');
           };
 
