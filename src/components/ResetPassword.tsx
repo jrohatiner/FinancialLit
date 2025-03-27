@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
         import { resetPassword } from '../mockApi';
         import './ResetPassword.css';
+import {Link} from "react-router-dom";
 
         const ResetPassword: React.FC = () => {
           const [email, setEmail] = useState('');
@@ -26,8 +27,11 @@ import React, { useState } from 'react';
                 />
                 <button type="submit" className="reset-password-button">Send Reset Link</button>
                 {message && <p className="reset-password-message">{message}</p>}
+
+                <p>If your email is associated with our system you will be mailed a reset link</p>
+                <p className="register-link">Don't have an account? <Link to="/register">Register here</Link></p>
               </form>
-            </div>
+              </div>
           );
         };
 

@@ -50,7 +50,7 @@ import React, { useState } from 'react';
                       <form className="create-account-form" onSubmit={handleSubmit}>
                         <h2>Registration</h2>
                         <p>Already a member? <Link to="/login">Login Here</Link></p>
-                        <div className="form-group">
+                        <div className="create-account-input create-account-input-no-border">
                           <input
                             type="text"
                             name="firstName"
@@ -88,7 +88,7 @@ import React, { useState } from 'react';
                           className="create-account-input create-account-input-full"
                           required
                         />
-                        <label htmlFor="dob" style={{ textAlign: 'left', width: '100%' }}>Date of Birth</label>
+                        <label for="dob" style={{ textAlign: 'left', width: '100%' }}>Date of Birth</label>
                         <input
                           type="date"
                           name="dob"
@@ -129,7 +129,7 @@ import React, { useState } from 'react';
                           name="country"
                           value={formData.country}
                           onChange={handleChange}
-                          className="create-account-input create-account-input-full"
+                          className="create-account-input create-account-input-full select"
                           required
                         >
                           <option value="">Select Country</option>

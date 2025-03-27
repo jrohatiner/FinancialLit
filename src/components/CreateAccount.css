@@ -9,7 +9,7 @@
 .create-account-form {
     background: #fff;
     padding: 30px;
-    border-radius: 8px;
+    border-radius: 6px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 500px;
@@ -30,18 +30,27 @@
 }
 
 .create-account-input {
-    width: 48%;
+    display: grid;
+    column-gap: 3px;
+    grid-template-columns: 1fr auto;
+    justify-content: space-evenly;
     padding: 12px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 16px;
+    background-color: #ffffff!important;
 }
-
+select.create-account-input.create-account-input-full.select {
+    width:106%;
+}
 .create-account-input-full {
-    width: 100%; /* Ensure full width for full-width inputs */
+    width: 100%;
+    background-color: #ffffff;!important/* Ensure full width for full-width inputs */
 }
-
+.create-account-input-no-border {
+    border: none;
+}
 .signup-button {
     width: 100%;
     padding: 12px;
